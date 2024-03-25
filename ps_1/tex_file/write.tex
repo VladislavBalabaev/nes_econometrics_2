@@ -1,0 +1,129 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{a4wide}
+\usepackage{ragged2e}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[top=30pt,bottom=30pt,left=48pt,right=46pt, margin=0.1in]{geometry}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+
+
+\justifying{}
+
+\DeclareMathOperator*{\E}{\mathbb{E}}
+
+\setlength\parindent{24pt}
+
+\graphicspath{ {./images/} }
+
+\def\imagewidth{9cm}
+
+
+\title{Econometrics II (Module IV, 2023--2024) \\ Home assignment \# 1}
+\author{Balabaev V., Kislyakov D.}
+% \date{2024-03-24}
+
+
+\begin{document}
+
+	\maketitle
+
+	\section*{Task 1. Interpretation and Replication of Empirical Results}
+	\textbf{Question:}\\
+	Why is Table 1 important in the context of the study Training Policymakers in Econometrics by Mehmood et al. (2023)? What are the authors attempting to determine with the results presented in this table? Interpret the key findings of Table 1.\\
+	\textbf{Answer:}\\
+	Table 1 shows the results of testing the hypothesis of random sampling via presenting the differences in distribution of parameters between the treatment and placebo groups. The fact that these differences are small in magnitude and statistically insignificant suggests that randomization was effective and generally speaking the way how characteristics of people are distributed among treated is reasonably close to the distribution of those from control group. \\
+	This is important because the authors want to neutralize the influence of any factors on the results of the experiment, except whether the participants of the experiment received a course in econometrics or a placebo in the form of a self-development course. \\
+	If the differences between the groups were great, then further research would make much less sense, because the samples would not be balanced, which means they would be far from randomly assigned. The authors consider columns 9, 10 and 11 (the policymakers' pretreatment written, interview and mathematics assessments) to be particularly important. \\
+	According to the authors, ``Since the policymakers obtained these  scores before the metrics training, the similarity of test scores across written and interview assessments suggests that those assigned the metrics training are likely balanced in their academic and interpersonal ability. Most important to note is the balance on pretreatment scores on the mathematics assessment. This suggests our sample is also balanced in quantitative ability.\\
+
+
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Deputy Minister - Balance of Treatment on Individual Characteristics}
+		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\begin{tabularx}{\textwidth}{X*{11}{>{\centering\arraybackslash}X}}
+		\toprule
+			&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}&\multicolumn{1}{c}{(11)}\\
+			& Birth in political capitals & Income & Age & Educatio n & Visited foreign country & PAS & PSP & Other groups & Pre-Treat ment Written Assignment & Pre-Treat ment Interview Assessment & Pre-Treat ment Mathematics Assessment \\
+		\midrule
+			Metrics Assigned&       0.053         &       0.000\sym{***}&       0.212         &       0.104         &      -0.002         &      -0.013         &      -0.055         &       0.033         &      -0.000         &       2.208         &       0.063         \\
+						&     (0.090)         &     (0.000)         &     (0.395)         &     (0.087)         &     (0.071)         &     (0.044)         &     (0.035)         &     (0.052)         &     (0.000)         &     (3.091)         &     (0.218)         \\
+		\hline
+			Controls    &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+			Observat ions&         190         &         190         &         190         &         190         &         190         &         190         &         190         &         190         &         190         &         190         &         190         \\
+			Mean of dep. variable &        .326         &   34473.737         &      26.811         &        .516         &        .232         &        .179         &        .326         &        .626         &     655.063         &     131.748         &       7.163         \\
+		\\
+		\bottomrule
+		\end{tabularx}
+		\medskip
+		\caption*{\footnotesize  Robust standard errors appear in brackets (clustered at the individual level). Metrics assigned is a dummy variable that switches on when a causal inference book is randomly assigned to participants. The causal inference book is randomly assigned conditional on the book being chosen. The controls include Metrics Chosen (a dummy variable that switches on when causal inference book is chosen by the participants), and all other available individual characteristics obtained from administrative data (i.e. all remaining column dependent variable except the dependent variable used in the respective column).  \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}
+	\end{table}
+
+	
+	\section*{Task 2. The significance of controls}
+	\textbf{Question:}\\
+	Will not adding metrics demanded or book choice variable as a control in the regression introduce bias or just result in loss of efficiency? Explain why this choice was made.\\
+	\textbf{Answer:}\\
+	The authors write, ``We isolated the effects of causal thinking separate from the demand for causal thinking with a simplified Becker Degroot Marshak mechanism.`` \\
+	The lottery completely determined the random assignment, allowing us to estimate the causal effects of receiving Mastering Metrics for those more likely vs. less likely to comply with the treatment. \\
+	If the desire to study econometrics were not separated from the fact of studying it, the results might be biased.For example, in a group studying econometrics, those who for some reason are less inclined to study it (for example, they think they already know enough) would put less effort into it and would end up with a worse result compared to if we compared only those who are predisposed to her study. \\
+	Thus, we would have already received not a pure effect from studying econometrics, but an effect with a bias on the motivation to undergo it.
+
+	\section*{Task 3. Replicating Table 3.2}
+	\textbf{Question:}\\
+	Interpret the coefficients obtained in the regressions in Table 3.2. Can you suggest the ways to improve how Table 3.2 is presented in the paper?\\
+	\textbf{Answer:}\\
+	Table 3.2 compares the results of the treatment and control groups on such indicators as the average number of letters sent by deputy ministers requesting funding for a number of policies and the proposed amount of funding. At the same time, during the course on econometrics, they were provided with evidence of effectiveness only on the policy of deworming. \\
+	As a result, we can observe a significant increase (an increase of 30 percentage points compared to 17.4 in the control group, approximately tripling) in the number of letters with recommendations on the implementation of a deworming policy written by the group receiving treatment relative to the control group. \\
+	Similarly, the amount of funds requested for this has increased by more than three times. \\
+	At the same time, the change in behavior relative to the other two policies, for which no evidence of their effectiveness was provided during the course, turned out to be small in magnitude and statistically insignificant. Thus, we can conclude that the deputy ministers who have completed the econometrics course are issuing policy recommendations on budget allocations that have costly reputational consequences. \\
+	\textbf{Possible suggestions:}\\
+	The numbers and letters move slightly relative to the vertical axis. Then, it also seems that the text written as an index on the left is written in a different font size, which looks inappropriate because there are not so many lines. Also, it is worth slightly increasing the size of the indentation inside the cell, so that, for example, the letter "g" does not go beyond the line. It is also worth aligning "Letter Sent" and "Funds Recommended" along the vertical axis, that is, centering so that there is no effect of "Letter Sent" being aligned at the top and "Funds Recommended" at the center.
+	Perhaps it would also be better if there was an additional line clearly showing the difference between the results of the control group and the treatment group, since the mean of dependent variable is written for a placebo.
+
+
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Effect of Metrics Training on Policy}
+		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\begin{tabularx}
+		{\textwidth}{X*{6}{>{\centering\arraybackslash}X}}
+		\toprule
+		& Letter Sent & Funds Recommended & Letter Sent & Funds Recommended & Letter Sent & Funds Recommended\\
+		&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+	\midrule
+			Metrics Assigned&       0.290\sym{***}&  401888\sym{***}&       0.010         &   18254         &      -0.053         &  -10042         \\
+				&     (0.083)         &(109081)         &     (0.062)         & (22179)         &     (0.077)         & (15197)         \\
+		\hline
+			Individual Controls&         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+			Observations&         190         &         190         &         190         &         190         &         190         &         190         \\
+			R-squared   &        .164         &        .206         &         .12         &        .103         &        .089         &          .1         \\
+			Mean of dep. var. (placebo)&        .174         &  171812.1         &        .174         &   51073.83         &        .262         &   41744.97         \\
+		\\
+		\bottomrule
+		\end{tabularx}
+		\medskip
+		\caption*{\footnotesize  Robust standard errors appear in brackets (clustered at the individual level). The dependent variables are letters sent and funds recommended to government division in Pakistan (in Pakistani Rupees) for budget allocation for Deworming, Orphanage and School renovations, respectively. Metrics Assigned is a dummy variable that switches on when a causal inference book is randomly assigned to participants. Consistent with all our earlier regressions, we aways control for the metrics chosen. The causal inference book, Mastering Metrics, is randomly assigned conditional on the book being chosen. The estimations obtained from OLS regressions include the following controls: metrics chosen, written test scores, interview test scores, gender, birth in political capitals, asset ownership, income before joining public service, age, education, foreign visits and occupational group dummies.  \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}
+	\end{table}
+
+	
+	\section*{Task 4}
+	\begin{figure}[htbp]
+
+		\centering
+		
+		\includegraphics[width=0.8\linewidth]{xyz.jpeg}
+		
+		\label{fig:mpr}
+		
+	\end{figure}
+\end{document}
